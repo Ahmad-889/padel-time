@@ -1,26 +1,387 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ─── DARK THEME (default) ───────────────────────────────────────────────── */
+@theme {
+  /* Brand Accents */
+  /* Unified green used as primary accent across themes (not neon) */
+  --color-accent: #1f7a24;
+  /* Slightly dimmed variant for subtle states */
+  --color-accent-dim: #166015;
+  /* Dimmed lime for subtle states */
+  --color-court-blue: #0d2137;
+  --color-court-blue-rgb: 13, 33, 55;
+  /* RGB tuple for use in rgba() instances */
+  /* Primary green RGB (matches --color-accent) */
+  --color-secondary-rgb: 31, 122, 36;
+  /* Deep court-inspired royal blue — sub-base gradient */
+  --color-court-blue-mid: #112b4a;
+  /* Mid-tone court blue */
+  --color-court-blue-light: #1a3d60;
+  /* Light court blue for subtle gradients */
+
+  /* Semantic Surface Colors — Dark Mode */
+  --color-background: #080d14;
+  /* Deep court-inspired near-black */
+  --color-surface: #0d1520;
+  /* Primary surface */
+  --color-surface-container: #111e2e;
+  /* Elevated containers */
+  --color-surface-container-low: #0c1824;
+  /* Subtle inset surfaces */
+  --color-surface-container-high: #182637;
+  /* Higher elevation */
+  --color-surface-container-highest: #1f3045;
+  /* Highest elevation */
+  --color-surface-dim: #090e17;
+  /* Subdued background */
+  --color-surface-container-lowest: #050b12;
+  /* Deepest layer */
+  --color-surface-variant: #1e2d40;
+  /* Variant surface */
+  --color-surface-bright: #243549;
+  /* Bright surface */
+
+  /* Text Colors — Dark Mode */
+  --color-primary: #eef2f7;
+  /* Primary text — cool off-white */
+  --color-on-background: #d8e0ec;
+  --color-on-surface: #d0d8e8;
+  --color-on-surface-variant: #bfcfe6;
+  /* Muted secondary text */
+  --color-on-primary: #080d14;
+  /* Brighter secondary text for better contrast on dark backgrounds */
+  --color-on-surface-variant-bright: #bfcfe6;
+
+  /* Accent Colors */
+  --color-secondary: #1f7a24;
+  /* Primary green CTA — chosen to work in both light & dark modes */
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #174f18;
+  --color-on-secondary-container: #daf2b6;
+
+  /* Borders & Structure */
+  --color-outline: #1e3050;
+  --color-outline-variant: #162540;
+  --color-inverse-surface: #d0d8e8;
+  --color-inverse-on-surface: #0d1520;
+  --color-inverse-primary: #112b4a;
+
+  /* Legacy / Unused — kept for backward compat */
+  --color-on-primary-fixed-variant: #364e00;
+  --color-secondary-fixed: #c8f328;
+  --color-on-primary-container: #4d6e00;
+  --color-on-secondary: #293500;
+  --color-on-secondary-container: #4c5f00;
+  --color-on-tertiary-container: #636565;
+  --color-on-primary-fixed: #131f00;
+  --color-primary-fixed-dim: #9bd900;
+  --color-secondary-fixed-dim: #aed500;
+  --color-error: #ffb4ab;
+  --color-tertiary-fixed: #e2e2e2;
+  --color-on-secondary-fixed: #171e00;
+  --color-surface-container-highest-legacy: #1f3045;
+  --color-on-tertiary: #2f3131;
+  --color-primary-fixed: #b2f800;
+  --color-on-tertiary-fixed-variant: #454747;
+  --color-on-error: #690005;
+  --color-surface-tint: #9bd900;
+  --color-on-background-legacy: #dee2f0;
+  --color-tertiary: #eef2f7;
+  --color-error-container: #93000a;
+  --color-on-tertiary-fixed: #1a1c1c;
+  --color-on-error-container: #ffdad6;
+  --color-tertiary-fixed-dim: #c6c6c7;
+  --color-tertiary-container: #e2e2e2;
+  --color-primary-container: #b2f800;
+  --color-on-secondary-fixed-variant: #3d4d00;
+
+  /* Spacing System */
+  --spacing-gutter: 1.5rem;
+  --spacing-stack-sm: 0.5rem;
+  --spacing-stack-md: 1rem;
+  --spacing-stack-lg: 2rem;
+  --spacing-container-max: 1280px;
+  --spacing-margin-desktop: 1rem;
+  --spacing-margin-mobile: 1.25rem;
+
+  /* Typography Font Families */
+  --font-display-lg: var(--font-hanken);
+  --font-headline-lg: var(--font-hanken);
+  --font-headline-lg-mobile: var(--font-hanken);
+  --font-headline-md: var(--font-hanken);
+  --font-body-lg: var(--font-hanken);
+  --font-body-md: var(--font-hanken);
+  --font-label-caps: var(--font-mono);
+
+  /* Typography Font Sizes */
+  --text-display-lg: 3.25rem;
+  --text-headline-lg: 2.75rem;
+  --text-headline-lg-mobile: 2rem;
+  --text-headline-md: 1.25rem;
+  --text-body-lg: 1.125rem;
+  --text-body-md: 0.95rem;
+  --text-label-caps: 0.75rem;
+
+  /* Animation */
+  --animate-pulse: pulse 2.5s cubic-bezier(0.32, 0.72, 0, 1) infinite;
+  --animate-bounce: bounce 1.2s cubic-bezier(0.32, 0.72, 0, 1) infinite;
+  --ease-premium: cubic-bezier(0.32, 0.72, 0, 1);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* ─── LIGHT THEME ─────────────────────────────────────────────────────────── */
+.light {
+  /* Semantic Surface Colors — Light Mode */
+  --color-background: #f5f7fb;
+  /* Cool editorial light background */
+  --color-surface: #ffffff;
+  --color-surface-container: #eef1f8;
+  --color-surface-container-low: #f0f3f9;
+  --color-surface-container-high: #e3e8f4;
+  --color-surface-container-highest: #d5ddf0;
+  --color-surface-dim: #e8ecf5;
+  --color-surface-container-lowest: #f8f9fc;
+  --color-surface-variant: #e0e6f0;
+  --color-surface-bright: #ffffff;
+
+  /* Text Colors — Light Mode */
+  --color-primary: #0d1520;
+  /* Near-black — strong contrast */
+  --color-on-background: #1a2540;
+  --color-on-surface: #1a2540;
+  --color-on-surface-variant: #4a5770;
+  /* Muted secondary — cool steel */
+  --color-on-primary: #ffffff;
+
+  /* Accent Colors — darker green for light-mode legibility */
+  --color-secondary: #1f7a24;
+  --color-secondary-rgb: 31, 122, 36;
+  /* Accent Colors — same lime, same rules */
+  /* Darkened lime for light bg readability */
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #d4f44f;
+  --color-on-secondary-container: #1a2500;
+
+  /* Borders & Structure */
+  --color-outline: #c5cedf;
+  --color-outline-variant: #dce3f0;
+
+  /* Court Blue — lightened for light mode */
+  --color-court-blue: #e8eef8;
+  --color-court-blue-rgb: 232, 238, 248;
+  --color-court-blue-mid: #dce5f5;
+  --color-court-blue-light: #cfdaf0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* ─── BASE RESETS ─────────────────────────────────────────────────────────── */
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+/* ─── PREMIUM UTILITY CLASSES ─────────────────────────────────────────────── */
+@layer utilities {
+
+  /* Spatial card — hairline border only, no fill, no blur */
+  .spatial-card {
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 1.5rem;
+  }
+
+  .light .spatial-card {
+    border: 1px solid rgba(0, 0, 0, 0.06);
+  }
+
+  /* Premium depth card — double-bezel architecture */
+  .depth-card {
+    background: rgba(17, 30, 46, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 2rem;
+    box-shadow:
+      inset 0 1px 1px rgba(255, 255, 255, 0.06),
+      0 24px 64px rgba(0, 0, 0, 0.4);
+  }
+
+  .light .depth-card {
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    box-shadow:
+      inset 0 1px 1px rgba(255, 255, 255, 0.9),
+      0 4px 24px rgba(0, 30, 80, 0.08);
+  }
+
+  /* Focal depth card — premium highlight for feature/popular items */
+  .focal-card {
+    background: linear-gradient(145deg, var(--color-surface-container) 0%, var(--color-court-blue-mid) 60%, var(--color-court-blue) 100%);
+    border: 1px solid rgba(var(--color-secondary-rgb), 0.15);
+    border-radius: 2rem;
+    box-shadow:
+      inset 0 1px 1px rgba(var(--color-secondary-rgb), 0.08),
+      0 32px 80px rgba(0, 0, 0, 0.5),
+      0 0 0 1px rgba(var(--color-secondary-rgb), 0.08);
+  }
+
+  .light .focal-card {
+    background: linear-gradient(145deg, var(--color-surface-bright) 0%, var(--color-surface-container-high) 100%);
+    border: 1px solid rgba(var(--color-secondary-rgb), 0.2);
+    box-shadow:
+      0 24px 60px rgba(13, 33, 55, 0.06),
+      0 0 0 1px rgba(var(--color-secondary-rgb), 0.12);
+  }
+
+  /* Hairline divider */
+  .hairline {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .light .hairline {
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+  }
+
+  /* Glass card — legacy, limited to modal/navbar only */
+  .glass-card {
+    background: rgba(17, 30, 46, 0.6);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+  }
+
+  .light .glass-card {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+  }
+
+  /* Ensure copy inside depth/spatial/focal cards uses the readable on-surface color in both themes */
+  .depth-card p,
+  .depth-card .font-body-md,
+  .spatial-card p,
+  .spatial-card .font-body-md,
+  .focal-card p,
+  .focal-card .font-body-md {
+    color: var(--color-on-surface);
+  }
+
+  /* Premium hover — accent border on hover */
+  .accent-hover {
+    transition: border-color 0.5s cubic-bezier(0.32, 0.72, 0, 1),
+      box-shadow 0.5s cubic-bezier(0.32, 0.72, 0, 1);
+  }
+
+  .accent-hover:hover {
+    border-color: rgba(var(--color-secondary-rgb), 0.25);
+    box-shadow: 0 0 0 1px rgba(var(--color-secondary-rgb), 0.1);
+  }
+
+  /* Court blue gradient background */
+  .court-blue-gradient {
+    background: linear-gradient(135deg, var(--color-court-blue) 0%, var(--color-background) 100%);
+  }
+
+  /* Modal blur overlay */
+  .modal-blur {
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+  }
+
+  /* Floating label for form inputs */
+  .floating-label-group {
+    position: relative;
+  }
+
+  .floating-label-group > label {
+    position: absolute;
+    left: 1rem;
+    top: 0.875rem;
+    z-index: 1;
+    padding: 0 0.25rem;
+    background-color: var(--color-surface-container-low);
+    transform: translateY(0);
+    transform-origin: left center;
+    transition:
+      top 180ms cubic-bezier(0.32, 0.72, 0, 1),
+      left 180ms cubic-bezier(0.32, 0.72, 0, 1),
+      transform 180ms cubic-bezier(0.32, 0.72, 0, 1),
+      font-size 180ms cubic-bezier(0.32, 0.72, 0, 1),
+      color 180ms cubic-bezier(0.32, 0.72, 0, 1),
+      background-color 180ms cubic-bezier(0.32, 0.72, 0, 1),
+      padding 180ms cubic-bezier(0.32, 0.72, 0, 1);
+  }
+
+  .floating-label-group:focus-within > label,
+  .floating-label-group.is-filled > label,
+  .floating-label-group.is-static > label {
+    top: 0;
+    left: 0.75rem;
+    font-size: 0.7rem;
+    color: var(--color-secondary);
+    transform: translateY(-50%);
+  }
+
+  /* Scrollbar utilities */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 3px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.03);
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(var(--color-secondary-rgb), 0.4);
+    border-radius: 10px;
+  }
+
+  /* Eyebrow label */
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--color-on-surface-variant);
+  }
+
+  .eyebrow-accent {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--color-secondary);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ─── GLOBAL SCROLLBARS ───────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-surface-variant);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(var(--color-secondary-rgb), 0.5);
+}
+
+/* ─── SELECTION ───────────────────────────────────────────────────────────── */
+::selection {
+  background: rgba(var(--color-secondary-rgb), 0.25);
+  color: var(--color-primary);
 }

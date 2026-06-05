@@ -1,103 +1,115 @@
-import Image from "next/image";
+"use client";
+
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
+import Stats from "@/components/Stats";
+import WhyClub from "@/components/WhyClub";
+import Gallery from "@/components/Gallery";
+import Perks from "@/components/Perks";
+import Pricing from "@/components/Pricing";
+import Testimonials from "@/components/Testimonials";
+import Contact from "@/components/Contact";
+import FAQ from "@/components/FAQ";
+import Footer from "@/components/Footer";
+import BookingModal from "@/components/BookingModal";
+
+import { ArrowUpRight } from "lucide-react";
 
 export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+  const handleJoinCommunity = () => {
+    window.open(
+      "https://wa.me/923061118333?text=Hello!%20I%20would%20like%20to%20join%20the%20Padel%20Time%20community%20group.",
+      "_blank"
+    );
+  };
+
+  return (
+    <>
+      {/* Navigation Header */}
+      <Navbar onBookClick={() => setIsModalOpen(true)} />
+
+      {/* Main Page Layout */}
+      <main>
+        {/* Hero Section */}
+        <Hero onBookClick={() => setIsModalOpen(true)} />
+
+        {/* Stats Milestone Section */}
+        <Stats />
+
+        {/* Why Padel Time Section */}
+        <WhyClub />
+
+        {/* Grid Gallery Section */}
+        <Gallery />
+
+        {/* Perks & Process Section */}
+        <Perks />
+
+        {/* Pricing Cards Section */}
+        <Pricing onBookClick={() => setIsModalOpen(true)} />
+
+        {/* Testimonials Review Slider */}
+        <Testimonials />
+
+        {/* Contact/Find Us Section */}
+        <Contact />
+
+        {/* FAQ Accordion Section */}
+        <FAQ />
+
+        {/* CTA Bottom Banner Section */}
+        <section className="py-32 px-margin-mobile md:px-margin-desktop">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, ease: [0.32, 0.72, 0, 1] }}
+            className="max-w-container-max mx-auto focal-card p-12 md:p-24 text-center overflow-hidden relative"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
+            {/* Radial overlay */}
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--color-secondary)_/_6%,_transparent_75%)] pointer-events-none" />
+
+            <div className="relative z-10 space-y-12">
+              <h2 className="font-display-lg text-headline-lg-mobile md:text-display-lg text-primary font-extrabold leading-[1.05] tracking-tight">
+                Ready To Own <br /> The Court?
+              </h2>
+              <p className="font-body-md text-[0.95rem] text-on-surface-variant max-w-xl mx-auto opacity-85 leading-relaxed">
+                Join the Padel Time community today. Limited evening slots available this week.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <button
+                  onClick={() => setIsModalOpen(true)}
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-secondary text-on-secondary px-8 py-4 rounded-full font-label-caps text-[12px] tracking-widest font-bold hover:bg-secondary/90 active:scale-[0.98] transition-all duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] cursor-pointer group shadow-xl shadow-secondary/10"
+                >
+                  <span>Book Your Court Now</span>
+                  <span className="w-5 h-5 rounded-full bg-black/15 flex items-center justify-center group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200">
+                    <ArrowUpRight className="w-3.5 h-3.5 text-on-secondary" strokeWidth={2.5} />
+                  </span>
+                </button>
+                <button
+                  onClick={handleJoinCommunity}
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-white/5 text-primary border border-white/10 px-8 py-4 rounded-full font-label-caps text-[12px] tracking-widest font-bold hover:bg-white/10 hover:border-white/15 active:scale-[0.98] transition-all duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] cursor-pointer group"
+                >
+                  <span>Join Community Group</span>
+                  <span className="w-5 h-5 rounded-full bg-white/8 flex items-center justify-center group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200">
+                    <ArrowUpRight className="w-3.5 h-3.5" strokeWidth={2.5} />
+                  </span>
+                </button>
+              </div>
+            </div>
+          </motion.div>
+        </section>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+
+      {/* Footer Legal Info */}
+      <Footer />
+
+      {/* Interactive Booking Modal Popup */}
+      <BookingModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+    </>
   );
 }
