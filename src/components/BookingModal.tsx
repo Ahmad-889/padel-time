@@ -122,7 +122,6 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                 <form className="space-y-6" id="padel-booking-form" onSubmit={handleSubmit}>
                   {/* Name & Phone Grid */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-gutter">
-                    // Replace line 125 with this:
                     <div className={floatingGroupClass(fullName ? "filled" : false)}>
                       <input
                         className="w-full rounded-lg border border-outline-variant bg-surface-container-low px-4 py-3.5 text-on-surface outline-none transition-all duration-200 ease-premium focus:border-secondary"
