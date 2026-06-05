@@ -122,7 +122,8 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                 <form className="space-y-6" id="padel-booking-form" onSubmit={handleSubmit}>
                   {/* Name & Phone Grid */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-gutter">
-                    <div className={floatingGroupClass(!!fullName)}>
+                    // Replace line 125 with this:
+                    <div className={floatingGroupClass(fullName ? "filled" : false)}>
                       <input
                         className="w-full rounded-lg border border-outline-variant bg-surface-container-low px-4 py-3.5 text-on-surface outline-none transition-all duration-200 ease-premium focus:border-secondary"
                         id="full-name"
@@ -139,7 +140,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                         Full Name
                       </label>
                     </div>
-                    <div className={floatingGroupClass(!!phone)}>
+                    <div className={floatingGroupClass(phone ? "filled" : false)}>
                       <input
                         className="w-full rounded-lg border border-outline-variant bg-surface-container-low px-4 py-3.5 text-on-surface outline-none transition-all duration-200 ease-premium focus:border-secondary"
                         id="phone"
@@ -223,7 +224,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                     <Users className="pointer-events-none absolute right-4 top-3.5 w-5 h-5 text-on-surface-variant" />
                   </div>
 
-                  <div className={floatingGroupClass(!!notes)}>
+                  <div className={floatingGroupClass(notes ? "filled" : false)}>
                     <textarea
                       className="custom-scrollbar w-full resize-none rounded-lg border border-outline-variant bg-surface-container-low px-4 py-3.5 text-on-surface outline-none transition-all duration-200 ease-premium focus:border-secondary"
                       id="notes"
