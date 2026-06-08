@@ -55,7 +55,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
   };
 
   const getWhatsAppLink = () => {
-    const formattedMessage = `*Padel Time Lahore - Court Booking Request*
+    const formattedMessage = `*Padel Next Lahore - Court Booking Request*
 *Name:* ${fullName}
 *Phone:* ${phone}
 *Date:* ${date}
