@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
 export const businessInfo = {
-  name: "Padel Next",
-  legalName: "Padel Next Lahore",
+  name: "Padel Time",
+  legalName: "Padel Time Lahore",
   description:
     "Play on professional courts in DHA Phase 5 Lahore, book instantly, and join one of Lahore's fastest-growing sports communities.",
   city: "Lahore",
