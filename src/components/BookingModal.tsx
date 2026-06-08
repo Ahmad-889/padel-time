@@ -3,6 +3,7 @@
 import React, { useState, FormEvent, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Target, ChevronDown, Users, ShieldCheck, CheckCircle, ArrowRight } from "lucide-react";
+import { businessInfo, createWhatsAppLink } from "@/lib/site";
 
 interface BookingModalProps {
   isOpen: boolean;
@@ -61,7 +62,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
 *Time:* ${time}
 *Players:* ${players}${notes ? `\n*Notes:* ${notes}` : ""}`;
 
-    return `https://wa.me/923061118333?text=${encodeURIComponent(formattedMessage)}`;
+    return createWhatsAppLink(formattedMessage);
   };
 
   const handleContinueToWhatsApp = () => {
@@ -116,7 +117,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                   </h1>
                 </div>
                 <p className="text-on-surface-variant mb-stack-lg font-body-md opacity-80">
-                  Fill in your details and we{"'"}ll connect you via WhatsApp to confirm your booking.
+                  Fill in your details and we{"'"}ll connect you via WhatsApp to confirm your booking at {businessInfo.name}.
                 </p>
 
                 <form className="space-y-6" id="padel-booking-form" onSubmit={handleSubmit}>

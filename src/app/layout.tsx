@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Hanken_Grotesk, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import { siteMetadata } from "@/lib/site";
 
 const hankenGrotesk = Hanken_Grotesk({
   variable: "--font-hanken",
@@ -16,19 +17,7 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  title: "Padel Time | Lahore's Premier Padel Experience",
-  description:
-    "Play on professional courts in DHA Phase 5 Lahore, book instantly, and join one of Lahore's fastest-growing sports communities.",
-  keywords: [
-    "Padel",
-    "Padel Time",
-    "Lahore Sports",
-    "DHA Phase 5 Padel",
-    "Padel Court Lahore",
-    "Book Padel Court",
-  ],
-};
+export const metadata: Metadata = siteMetadata;
 
 export default function RootLayout({
   children,

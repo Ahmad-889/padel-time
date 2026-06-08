@@ -3,6 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Target, Lightbulb, CalendarCheck, MapPin, Users, Package, LucideIcon } from "lucide-react";
+import { businessInfo } from "@/lib/site";
 
 interface Feature {
   icon: LucideIcon;
@@ -107,7 +108,7 @@ export default function WhyClub() {
               transition={{ duration: 0.5, ease: [0.32, 0.72, 0, 1] }}
               className="eyebrow-accent mb-5"
             >
-              WHY PADEL TIME
+              WHY {businessInfo.name}
             </motion.p>
             <motion.h2
               initial={{ opacity: 0, y: 20 }}

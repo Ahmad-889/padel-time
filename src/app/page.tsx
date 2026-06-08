@@ -14,6 +14,7 @@ import Contact from "@/components/Contact";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import BookingModal from "@/components/BookingModal";
+import { businessInfo, createWhatsAppLink } from "@/lib/site";
 
 import { ArrowUpRight } from "lucide-react";
 
@@ -21,10 +22,7 @@ export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleJoinCommunity = () => {
-    window.open(
-      "https://wa.me/923061118333?text=Hello!%20I%20would%20like%20to%20join%20the%20Padel%20Time%20community%20group.",
-      "_blank"
-    );
+    window.open(createWhatsAppLink(businessInfo.communityMessage), "_blank");
   };
 
   return (
@@ -71,19 +69,19 @@ export default function Home() {
             className="max-w-container-max mx-auto focal-card p-12 md:p-24 text-center overflow-hidden relative"
           >
             {/* Radial overlay */}
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--color-secondary)_/_6%,_transparent_75%)] pointer-events-none" />
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,var(--color-secondary)/6%,transparent_75%)] pointer-events-none" />
 
             <div className="relative z-10 space-y-12">
               <h2 className="font-display-lg text-headline-lg-mobile md:text-display-lg text-primary font-extrabold leading-[1.05] tracking-tight">
                 Ready To Own <br /> The Court?
               </h2>
-              <p className="font-body-md text-[0.95rem] text-on-surface-variant max-w-xl mx-auto opacity-85 leading-relaxed">
-                Join the Padel Time community today. Limited evening slots available this week.
+              <p className="font-body-md text-body-md text-on-surface-variant max-w-xl mx-auto opacity-85 leading-relaxed">
+                Join the {businessInfo.name} community today. Limited evening slots available this week.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <button
                   onClick={() => setIsModalOpen(true)}
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-secondary text-on-secondary px-8 py-4 rounded-full font-label-caps text-[12px] tracking-widest font-bold hover:bg-secondary/90 active:scale-[0.98] transition-all duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] cursor-pointer group shadow-xl shadow-secondary/10"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-secondary text-on-secondary px-8 py-4 rounded-full font-label-caps text-label-caps tracking-widest font-bold hover:bg-secondary/90 active:scale-[0.98] transition-all duration-300 ease-premium cursor-pointer group shadow-xl shadow-secondary/10"
                 >
                   <span>Book Your Court Now</span>
                   <span className="w-5 h-5 rounded-full bg-black/15 flex items-center justify-center group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200">
@@ -92,7 +90,7 @@ export default function Home() {
                 </button>
                 <button
                   onClick={handleJoinCommunity}
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-white/5 text-primary border border-white/10 px-8 py-4 rounded-full font-label-caps text-[12px] tracking-widest font-bold hover:bg-white/10 hover:border-white/15 active:scale-[0.98] transition-all duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] cursor-pointer group"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-white/5 text-primary border border-white/10 px-8 py-4 rounded-full font-label-caps text-label-caps tracking-widest font-bold hover:bg-white/10 hover:border-white/15 active:scale-[0.98] transition-all duration-300 ease-premium cursor-pointer group"
                 >
                   <span>Join Community Group</span>
                   <span className="w-5 h-5 rounded-full bg-white/8 flex items-center justify-center group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200">

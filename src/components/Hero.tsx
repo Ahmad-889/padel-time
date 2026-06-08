@@ -4,6 +4,7 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight, MessageCircle, ChevronDown } from "lucide-react";
+import { businessInfo, createWhatsAppLink } from "@/lib/site";
 
 interface HeroProps {
   onBookClick: () => void;
@@ -11,21 +12,21 @@ interface HeroProps {
 
 export default function Hero({ onBookClick }: HeroProps) {
   const handleWhatsAppBooking = () => {
-    window.open("https://wa.me/923061118333?text=Hello!%20I%20would%20like%20to%20inquire%20about%20booking%20a%20padel%20court.", "_blank");
+    window.open(createWhatsAppLink(businessInfo.bookingMessage), "_blank");
   };
 
   return (
     <section className="relative min-h-screen flex items-center pt-20" id="home">
       {/* Background Graphic */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent z-10"></div>
+        <div className="absolute inset-0 bg-linear-to-t from-background via-background/60 to-transparent z-10"></div>
         <Image
           src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnt-uCBP_Lcn5B7GbwcXF_BOUW9mOtQS0exrEFfilpAV9QSWA_QAlLScfGj_GixqqNMyddt6V0Ro9Fq_DyltCNUAsBvp7cnf0BKi0Lk6Im9eicascnMIbTbAqX5cfL6tneUBbVvnBk27jeCdwjGCPYYJWnsBGXqdltjX3HpeZ31VMqZWvO0h3kwkehx_V6ms9JJA3coP_jzlMMdXE8_8f5TU7UpaQxg0gccDpbYmNWau6Qyu_lhIyWTvuxaWcGSehRSnpnip_eva5j"
           alt="A high-contrast cinematic shot of a professional padel court at night in Lahore."
           fill
           priority
           sizes="100vw"
-          className="object-cover grayscale-[20%]"
+          className="object-cover grayscale-20"
         />
       </div>
 
@@ -41,7 +42,7 @@ export default function Hero({ onBookClick }: HeroProps) {
           >
             <span className="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
             <span className="font-label-caps text-[11px] text-on-surface-variant tracking-wider">
-              OPEN IN DHA PHASE 5, LAHORE
+              OPEN IN {businessInfo.area.toUpperCase()}, {businessInfo.city.toUpperCase()}
             </span>
           </motion.div>
 
@@ -102,7 +103,7 @@ export default function Hero({ onBookClick }: HeroProps) {
                 HOURS
               </span>
               <span className="font-body-md text-body-md text-primary font-medium">
-                06:00 AM - 02:00 AM
+                {businessInfo.operatingHours.replace("Daily: ", "")}
               </span>
             </div>
             <div className="w-px h-8 bg-white/10"></div>
@@ -111,7 +112,7 @@ export default function Hero({ onBookClick }: HeroProps) {
                 LOCATION
               </span>
               <span className="font-body-md text-body-md text-primary font-medium">
-                DHA Phase 5, Lahore
+                {businessInfo.area}, {businessInfo.city}
               </span>
             </div>
           </motion.div>

@@ -4,10 +4,11 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { MapPin, Phone, Clock } from "lucide-react";
+import { businessInfo } from "@/lib/site";
 
 export default function Contact() {
   const handleOpenMaps = () => {
-    window.open("https://www.google.com/maps/dir//padel%20time", "_blank");
+    window.open(businessInfo.mapsUrl, "_blank");
   };
 
   return (
@@ -27,7 +28,7 @@ export default function Contact() {
                 FIND US
               </span>
               <h2 className="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary font-bold">
-                In The Heart Of <br /> DHA Phase 5
+                In The Heart Of <br /> {businessInfo.area}
               </h2>
             </div>
 
@@ -40,7 +41,7 @@ export default function Contact() {
                 <div>
                   <h4 className="font-body-md text-body-md text-primary font-bold mb-1">Address</h4>
                   <p className="font-body-md text-body-md text-on-surface-variant opacity-85 leading-relaxed">
-                    Street 10, Sector G, DHA Phase 5, Lahore, Pakistan
+                    {businessInfo.address}
                   </p>
                 </div>
               </div>
@@ -55,7 +56,7 @@ export default function Contact() {
                     Phone / WhatsApp
                   </h4>
                   <p className="font-body-md text-body-md text-on-surface-variant opacity-85 leading-relaxed">
-                    +92 306 1118333
+                    {businessInfo.phoneDisplay}
                   </p>
                 </div>
               </div>
@@ -70,7 +71,7 @@ export default function Contact() {
                     Operating Hours
                   </h4>
                   <p className="font-body-md text-body-md text-on-surface-variant opacity-85 leading-relaxed">
-                    Daily: 06:00 AM – 02:00 AM
+                    {businessInfo.operatingHours}
                   </p>
                 </div>
               </div>
@@ -87,7 +88,7 @@ export default function Contact() {
           >
             <Image
               src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcZFobqncf1gDAbB_a0QE6qL387SCZs-rTpGASLwpyRdZoqB4MRUUtEINzASHZof-cmina0mxxKrHAV1PT3UI0Y8WYjYQXW2mWB1L58LgWLH6nh3rLCeKb8onuNIJcP5wbA-OYFzZY7qctoVS7PCiLcoxfG7yOVLvyNTxDfeWQw-5qkyGZIgOGbdcjPmSQL3MHkQZSx7zIvtWrZKXf4PfKe4Y3wyKadG7WbqXZOymcQzZHPC7rDHmLM9ZqkR4ueH2gnkoOGFocTUhh"
-              alt="Stylized map showing Padel Time location in DHA Phase 5, Lahore."
+              alt={`Stylized map showing ${businessInfo.name} location in ${businessInfo.area}, ${businessInfo.city}.`}
               fill
               sizes="(max-w-768px) 100vw, 50vw"
               className="object-cover"

@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Sun, Moon, ArrowUpRight, Menu, X } from "lucide-react";
+import { businessInfo } from "@/lib/site";
 
 interface NavbarProps {
   onBookClick: () => void;
@@ -80,7 +81,7 @@ export default function Navbar({ onBookClick }: NavbarProps) {
             onClick={(e) => scrollTo(e, "home")}
             className="px-4 py-2 font-display-lg tracking-tighter text-primary font-extrabold text-[15px] uppercase select-none whitespace-nowrap"
           >
-            PADEL TIME
+            {businessInfo.name.toUpperCase()}
           </a>
 
           {/* Desktop Links */}

@@ -3,6 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { businessInfo } from "@/lib/site";
 
 interface GalleryItemProps {
   src: string;
@@ -49,7 +50,7 @@ export default function Gallery() {
     },
     {
       src: "https://lh3.googleusercontent.com/aida-public/AB6AXuDpNJr8kz2lXSeMlZkhyH7E7l_xwslKDx_3kzzE5vp_A6IMLrBKhzEQujv0B-pm9y1B0EwE_3SUh7mbZqbLyT7espuCTeU131zz6kXLjX6laySVML21kNotUCP8do4rG_pymqmtZZhi4DzNrrBj6oHCDxTKnwuqsGw7DMsHPnz6ut-Bg_ny2XD0KEj1tDXKRqDjSqxRxu8ZBw1qmTDS2fiQmxjObN4Bx2pdmDm8WNWwe9tgUWmUAEInQM4VuT6jFW0LcJQgDeLbfGG5",
-      alt: "Lounge area at the entrance of Padel Time with high-end sports social hub atmosphere.",
+      alt: `Lounge area at the entrance of ${businessInfo.name} with high-end sports social hub atmosphere.`,
       className: "md:col-span-1 md:row-span-2 min-h-[300px] md:min-h-full",
       delay: 0.2,
     },
